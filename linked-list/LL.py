@@ -3,8 +3,8 @@ from typing import Optional
 
 class Node:
     def __init__(self, data: int):
-        self.data: str = data
-        self.next: Node = None
+        self.data: int = data
+        self.next: Optional[Node] = None
 
 
 class LL:
