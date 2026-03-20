@@ -1,4 +1,6 @@
 names = ["rizwan", "ali", "ahsan"]
+print(names)
+print("****************")
 for name in names:
     print(name)
 print("****************")
