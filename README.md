@@ -1,1 +1,1 @@
-### Implemented Problem solutions using Python3.
+### Implemented Problem solutions and developed small projects using Python.
