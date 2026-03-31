@@ -25,8 +25,7 @@ def get_repositories(language: str):
     r = requests.get(url)
     print(f"Status code: {r.status_code}")
     response_dict: ResponseType = r.json()
-    print(response_dict.total_count)
-    # print(response_dict["items"][0].name)
+    print(response_dict["items"][0].keys())
 
 
 if __name__ == "__main__":
