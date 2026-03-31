@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ch17-project"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests==2.33.1"
+]
+
+[project.optional-dependencies]
+dev-dependencies = [
+  "ruff==0.15.8",
+  "py==1.11.0"
+]
