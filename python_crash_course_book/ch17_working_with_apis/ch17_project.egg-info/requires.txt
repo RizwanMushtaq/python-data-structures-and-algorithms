@@ -1,5 +1,0 @@
-requests==2.33.1
-
-[dev-dependencies]
-ruff==0.15.8
-py==1.11.0

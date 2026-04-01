@@ -1,18 +1,26 @@
-[build-system]
-requires = ["setuptools>=61"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "ch17-project"
 version = "0.1.0"
 readme = "README.md"
 requires-python = ">=3.10"
+authors = [
+  {name = "Rizwan Mushtaq", email = "rizwanmushtaq15@gmail.com"},
+]
 dependencies = [
-  "requests==2.33.1"
+  "requests==2.33.1",
+  "plotly==6.6.0",
+  "numpy==2.4.4",
 ]
 
-[project.optional-dependencies]
-dev-dependencies = [
+[dependency-groups]
+dev = [
   "ruff==0.15.8",
-  "py==1.11.0"
+  "py==1.11.0",
 ]
+
+[project.scripts]
+magic = "ch17_project.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

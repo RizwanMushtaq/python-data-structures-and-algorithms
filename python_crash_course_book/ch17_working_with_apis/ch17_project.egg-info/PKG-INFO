@@ -1,9 +1,0 @@
-Metadata-Version: 2.4
-Name: ch17-project
-Version: 0.1.0
-Requires-Python: >=3.10
-Description-Content-Type: text/markdown
-Requires-Dist: requests==2.33.1
-Provides-Extra: dev-dependencies
-Requires-Dist: ruff==0.15.8; extra == "dev-dependencies"
-Requires-Dist: py==1.11.0; extra == "dev-dependencies"
