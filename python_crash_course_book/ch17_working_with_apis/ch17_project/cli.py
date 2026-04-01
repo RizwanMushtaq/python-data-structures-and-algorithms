@@ -43,7 +43,7 @@ class ResponseType:
 
 
 def get_repositories(language: str) -> list[Repository]:
-    query = f"language:{language}+sort:stars"
+    query = f"language:{language}+sort:stars+stars:>100000"
     url = API_URL + query
     r = requests.get(url)
     if r.status_code != 200:
@@ -52,6 +52,14 @@ def get_repositories(language: str) -> list[Repository]:
     return response.repositorys
 
 
+def plotGraph(repositories: list[Repository]) -> None:
+    repo_names = [repo.name for repo in repositories]
+    stars = [repo.stargazers_count for repo in repositories]
+    fig = px.bar(x=repo_names, y=stars)
+    fig.show()
+
+
 def main():
     respositories = get_repositories("python")
-    print(respositories[0])
+    print(len(respositories))
+    plotGraph(respositories)
