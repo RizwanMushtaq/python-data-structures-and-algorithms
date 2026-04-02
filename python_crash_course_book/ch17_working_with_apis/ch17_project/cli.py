@@ -53,13 +53,25 @@ def get_repositories(language: str) -> list[Repository]:
 
 
 def plotGraph(repositories: list[Repository]) -> None:
-    repo_names = [repo.name for repo in repositories]
-    stars = [repo.stargazers_count for repo in repositories]
-    fig = px.bar(x=repo_names, y=stars)
+    repo_links, stars, hover_texts = [], [], []
+    for repo in repositories:
+        repo_links.append(f"<a href='{repo.html_url}'>{repo.name}</a>")
+        stars.append(repo.stargazers_count)
+        hover_texts.append(f"{repo.owner}<br />{repo.description}")
+
+    title = "Most-Stared Python repositores on Github"
+    labels = {"x": "Repository", "y": "Stars"}
+    fig = px.bar(
+        x=repo_links, y=stars, title=title, labels=labels, hover_name=hover_texts
+    )
+    fig.update_layout(
+        title_font_size=28, xaxis_title_font_size=20, yaxis_title_font_size=20
+    )
+    fig.update_traces(marker_color="SteelBlue", marker_opacity=0.6)
     fig.show()
 
 
 def main():
     respositories = get_repositories("python")
-    print(len(respositories))
+    print(f"total repositories fetched are {len(respositories)}")
     plotGraph(respositories)
